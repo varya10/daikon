@@ -50,7 +50,7 @@ def define_computation_graph(source_vocab_size: int, target_vocab_size: int, bat
 
     with tf.variable_scope("Decoder"):
         decoder_cell = tf.contrib.rnn.LSTMCell(C.HIDDEN_SIZE)
-        decoder_cell = tf.nn.contrib.DropoutWrapper(decoder_cell, output_keep_prob=0.8)
+        decoder_cell = tf.contrib.rnn.DropoutWrapper(decoder_cell, output_keep_prob=0.8)
         decoder_outputs, decoder_final_state = tf.nn.dynamic_rnn(decoder_cell,
                                                                  decoder_inputs_embedded,
                                                                  initial_state=encoder_final_state,
